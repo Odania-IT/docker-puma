@@ -14,7 +14,7 @@ ENV HOME /srv
 WORKDIR /srv/app
 
 # Add startup script
-COPY select_type.sh /startup.sh
+COPY startup.sh /startup.sh
 
 CMD ['/startup.sh']
 EXPOSE 3000
