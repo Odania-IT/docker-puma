@@ -1,4 +1,4 @@
-FROM odaniait/docker-base:latest
+FROM odaniait/docker-base:alpine
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
 # Prepare /srv directory
@@ -26,4 +26,3 @@ RUN touch /etc/service/puma/down
 RUN mkdir -p /etc/service/sidekiq
 COPY runit/runit_sidekiq.sh /etc/service/sidekiq/run
 RUN touch /etc/service/sidekiq/down
-
