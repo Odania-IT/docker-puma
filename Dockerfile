@@ -1,4 +1,4 @@
-FROM odaniait/docker-base:alpine
+FROM odaniait/docker-base:ubuntu
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
 # Prepare /srv directory
