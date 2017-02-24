@@ -17,3 +17,4 @@ COPY startup.sh /startup.sh
 
 CMD ['/startup.sh']
 EXPOSE 3000
+USER app
