@@ -17,6 +17,6 @@ WORKDIR /srv/app
 COPY startup.sh /startup.sh
 RUN chown -R app:app /startup.sh
 
-CMD ['/startup.sh']
+CMD '/startup.sh'
 EXPOSE 3000
 USER app

@@ -10,4 +10,3 @@ else
 	echo "Starting puma web process"
 	exec bundle exec puma -e ${RAILS_ENV} -p 3000 --threads 2:16
 fi
-
