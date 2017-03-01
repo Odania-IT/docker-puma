@@ -15,6 +15,7 @@ WORKDIR /srv/app
 
 # Add startup script
 COPY startup.sh /startup.sh
+COPY default.conf /etc/nginx/sites-enabled/default
 RUN chown -R app:app /startup.sh
 
 CMD '/startup.sh'
