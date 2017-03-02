@@ -9,7 +9,7 @@ then
 elif [ ! -z "$PROCESS_TYPE" ] && [ $PROCESS_TYPE == 'nginx' ]
 then
 	echo "Starting nginx asset serving"
-	exec nginx -g "daemon off"
+	exec nginx -g "daemon off;"
 else
 	echo "Starting puma web process"
 	exec bundle exec puma -e ${RAILS_ENV} -p 3000 --threads 2:16
