@@ -1,6 +1,12 @@
 FROM odaniait/docker-base:ubuntu
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
+# Prepare nginx
+RUN apt-get update && apt-get install -y nginx && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN sed -i -e 's#access_log /var/log/nginx/access.log;#access_log /dev/stdout;#' /etc/nginx/nginx.conf
+RUN sed -i -e 's#error_log /var/log/nginx/error.log;#error_log /dev/stderr;#' /etc/nginx/nginx.conf
+RUN sed -i -e 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;/' /etc/nginx/nginx.conf
+
 # Prepare /srv directory
 RUN mkdir -p /srv/app
 RUN addgroup --gid 9999 app
