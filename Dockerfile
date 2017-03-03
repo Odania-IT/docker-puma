@@ -16,6 +16,7 @@ RUN mkdir -p /srv/.ssh
 RUN chmod 700 /srv/.ssh
 RUN chown app:app /srv/.ssh
 RUN chown -R app:app /srv
+RUN chown -R app:app /var/lib/nginx/
 ENV HOME /srv
 WORKDIR /srv/app
 
