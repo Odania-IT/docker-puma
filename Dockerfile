@@ -1,6 +1,11 @@
 FROM odaniait/docker-base:ubuntu
 MAINTAINER Mike Petersen <mike@odania-it.de>
 
+# Create app user
+RUN addgroup --gid 9999 app
+RUN adduser --uid 9999 --gid 9999 --disabled-password --gecos "Application" app
+RUN usermod -L app
+
 # Prepare nginx
 RUN apt-get update && apt-get install -y nginx && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN sed -i -e 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;/' /etc/nginx/nginx.conf
@@ -12,9 +17,6 @@ RUN chown -R app:app /var/lib/nginx/
 
 # Prepare /srv directory
 RUN mkdir -p /srv/app
-RUN addgroup --gid 9999 app
-RUN adduser --uid 9999 --gid 9999 --disabled-password --gecos "Application" app
-RUN usermod -L app
 RUN mkdir -p /srv/.ssh
 RUN chmod 700 /srv/.ssh
 RUN chown app:app /srv/.ssh
