@@ -26,5 +26,5 @@ COPY default.conf /etc/nginx/sites-enabled/default
 RUN chown -R app:app /startup.sh
 
 CMD '/startup.sh'
-EXPOSE 3000
+EXPOSE 80
 USER app
