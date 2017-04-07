@@ -13,7 +13,7 @@ then
 elif [ ! -z "$PROCESS_TYPE" ] && [ $PROCESS_TYPE == 'resque' ]
 then
 	echo "Starting background worker resque"
-	exec QUEUE=* COUNT=2 bundle exec rake resque:workers
+	QUEUE=* COUNT=2 exec bundle exec rake resque:workers
 elif [ ! -z "$PROCESS_TYPE" ] && [ $PROCESS_TYPE == 'resque_scheduler' ]
 then
 	echo "Starting resque_scheduler"
